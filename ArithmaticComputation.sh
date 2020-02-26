@@ -25,3 +25,10 @@ storeResult[3]=`echo "scale=4; $a%$b+$c" | bc -l`
 #DISPLAY DICTIONARY VALUES 
 echo "${storeResult[@]}"
 
+
+#STORING VALUES FROM DICTIONARY TO ARRAY
+for((iter=0;iter<${#storeResult[@]};iter++))
+do
+	storeDictionaryValue[$iter]="${storeResult[$iter]}"
+	echo "${storeDictionaryValue[$iter]}"
+done
