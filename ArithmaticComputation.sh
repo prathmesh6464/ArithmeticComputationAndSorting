@@ -28,23 +28,23 @@ storeResult[3]=`echo "scale=2; $a%$b+$c" | bc -l`
 
 
 #DISPLAY DICTIONARY VALUES 
-echo "${storeResult[@]}"
+echo "Dictionary Values : ${storeResult[@]}"
 
 
 #STORING VALUES FROM DICTIONARY TO ARRAY
 for((iter=0;iter<${#storeResult[@]};iter++))
 do
 	storeDictionaryValue[$iter]="${storeResult[$iter]}"
-	echo "${storeDictionaryValue[$iter]}"
+	echo "Display Values of Array : ${storeDictionaryValue[$iter]}"
 done
 
 
-#RESULT IN DECENDING ORDER
+#RESULT IN DESCENDING ORDER
 for ((iter=0;iter<${#storeResult[@]}-1;iter++))
 do
 	for((iter2=$iter+1;iter2<${#storeResult[@]};iter2++))
 	do
-		if ((`echo "${storeDictionaryValue[$iter]}<${storeDictionaryValue[$iter2]}" | bc`==1 ))
+		if ((`echo "${storeDictionaryValue[$iter]}<${storeDictionaryValue[$iter2]}" | bc`==1))
 		then
 			temp="${storeDictionaryValue[$iter]}"
 			storeDictionaryValue[$iter]="${storeDictionaryValue[$iter2]}"
@@ -55,8 +55,23 @@ done
 
 
 #DISPLAY ARRAY VALUES
-echo ${storeDictionaryValue[@]}
+echo "Array In Descending Order : " ${storeDictionaryValue[@]}
 
 
-#RESULT IN ASENDING ORDER
+#RESULT IN ASCENDING ORDER
+for ((iter=0;iter<${#storeResult[@]}-1;iter++))
+do
+	for((iter2=$iter+1;iter2<${#storeResult[@]};iter2++))
+	do
+		if ((`echo "${storeDictionaryValue[$iter]}>${storeDictionaryValue[$iter2]}" | bc`==1))
+		then
+			temp="${storeDictionaryValue[$iter]}"
+			storeDictionaryValue[$iter]="${storeDictionaryValue[$iter2]}"
+			storeDictionaryValue[$iter2]=$temp
+		fi
+	done
+done
 
+
+#DISPLAY ARRAY VALUES
+echo "Array In Ascending Order : " ${storeDictionaryValue[@]}
