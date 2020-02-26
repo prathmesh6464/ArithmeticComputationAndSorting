@@ -11,3 +11,5 @@ read -p "Enter Third Input c : " c
 #PERFORMING ARITHMETIC OPERATIONS
 echo "a+b*c : " $((a+b*c))
 echo "a*b+c : " $((a*b+c))
+echo "c/a+b : " `echo "scale=4; $c/$a+$b" | bc -l`
+
