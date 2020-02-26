@@ -8,3 +8,6 @@ read -p "Enter Second Input b : " b
 read -p "Enter Third Input c : " c
 
 
+#PERFORMING ARITHMETIC OPERATIONS
+echo "a+b*c :" $((a+b*c))
+
