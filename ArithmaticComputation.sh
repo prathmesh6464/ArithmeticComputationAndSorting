@@ -9,5 +9,5 @@ read -p "Enter Third Input c : " c
 
 
 #PERFORMING ARITHMETIC OPERATIONS
-echo "a+b*c :" $((a+b*c))
-
+echo "a+b*c : " $((a+b*c))
+echo "a*b+c : " $((a*b+c))
